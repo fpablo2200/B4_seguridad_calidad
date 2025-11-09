@@ -13,8 +13,6 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-
-            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/", "/home", "/login","/recetas/buscar","/buscar", "/css/**", "/images/**").permitAll()
                 .anyRequest().authenticated()
@@ -26,6 +24,17 @@ public class WebSecurityConfig {
                 .failureUrl("/login?error=true")
                 .permitAll()
             );
+
+            http
+                .headers(headers -> headers
+                    .contentSecurityPolicy(csp -> csp
+                        .policyDirectives("default-src 'self'; " +
+                                        "style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; " +
+                                        "font-src 'self' https://fonts.gstatic.com; " +
+                                        "img-src 'self' data:; " +
+                                        "script-src 'self';")
+                    )
+                );
 
         return http.build();
     }

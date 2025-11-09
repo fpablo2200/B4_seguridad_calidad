@@ -22,6 +22,7 @@
 
     <form class="buscador" th:action="@{/recetas/buscar}" method="get">
       <input type="text" name="q" th:value="${query}" placeholder="Nombre, ingrediente o país..." required>
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
       <button type="submit">Buscar</button>
     </form>
 

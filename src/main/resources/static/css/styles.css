@@ -1,0 +1,127 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #faf7f2;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.navbar {
+  background-color: #ff7043;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar a:hover,
+.navbar .active {
+  text-decoration: underline;
+}
+
+/* Buscador */
+.search-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff3e0;
+}
+
+.search-form input {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-form button {
+  background-color: #ff7043;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #f4511e;
+}
+
+/* Grid de recetas */
+.recetas-container {
+  padding: 40px;
+  text-align: center;
+}
+
+.grid-recetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.receta-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.receta-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.receta-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.receta-info {
+  padding: 15px;
+}
+
+.receta-info h3 {
+  margin: 10px 0;
+  color: #ff7043;
+}
+
+.btn-detalle {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #ff7043;
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn-detalle:hover {
+  background-color: #f4511e;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #fff3e0;
+  padding: 15px;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 50px;
+}

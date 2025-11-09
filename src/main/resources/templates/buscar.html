@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Buscar Recetas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/recetas.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1>Recetario</h1>
+    <nav>
+      <a href="/" class="active">Inicio</a>
+      <a href="/recetas/buscar">Buscar</a>
+      <a href="/login">Iniciar Sesión</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Buscar Recetas</h2>
+
+    <form class="buscador" th:action="@{/recetas/buscar}" method="get">
+      <input type="text" name="q" th:value="${query}" placeholder="Nombre, ingrediente o país..." required>
+      <button type="submit">Buscar</button>
+    </form>
+
+    <section class="resultados">
+      <div th:if="${#lists.isEmpty(recetas)}">
+        <p>No se encontraron resultados para "<span th:text="${query}"></span>"</p>
+      </div>
+
+      <div class="grid-recetas" th:if="${!#lists.isEmpty(recetas)}">
+        <div class="receta-card" th:each="receta : ${recetas}">
+          <h3 th:text="${receta.titulo}"></h3>
+          <p th:text="'País: ' + ${receta.paisOrigen}"></p>
+          <p th:text="'Dificultad: ' + ${receta.dificultad}"></p>
+          <a th:href="@{'/recetas/' + ${receta.idReceta}}" class="btn-detalle">Ver Detalle</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p></p>
+  </footer>
+</body>
+</html>
